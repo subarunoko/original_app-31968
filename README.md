@@ -9,15 +9,15 @@
 | encrypted_password  | string    | null: false               |
 
 ## Association
-  has_many :articles
-  has_many :likes, dependent: :destroy
-  has_many :like_articles, through: :likes, source: :article
-  has_many :articles, through: :likes
-  has_many :relationships, dependent: :destroy
-  has_many :followings, through: :relationships, source: :follower
-  has_many :passive_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
-  has_many :followers, through: :passive_relationships, source: :user
-  has_one :profile
+- has_many :articles
+- has_many :likes, dependent: :destroy
+- has_many :like_articles, through: :likes, source: :article
+- has_many :articles, through: :likes
+- has_many :relationships, dependent: :destroy
+- has_many :followings, through: :relationships, source: :follower
+- has_many :passive_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+- has_many :followers, through: :passive_relationships, source: :user
+- has_one :profile
 
 
 ## articles テーブル
@@ -30,11 +30,11 @@
 
 ## Association
 - belongs_to :user
-  has_many :likes
-  has_many :users, through: :likes
-  has_many :like_users, through: :likes, source: :user
-  has_many :article_tag_relations, dependent: :destroy
-  has_many :tags, through: :article_tag_relations, dependent: :destroy
+- has_many :likes
+- has_many :users, through: :likes
+- has_many :like_users, through: :likes, source: :user
+- has_many :article_tag_relations, dependent: :destroy
+- has_many :tags, through: :article_tag_relations, dependent: :destroy
 
 
 ## likes テーブル
@@ -45,8 +45,8 @@
 | article         | references   | null: false, foreign_key: true |
 
 ## Association
-  belongs_to :user
-  belongs_to :article
+- belongs_to :user
+- belongs_to :article
 
 
 ## relationships テーブル
@@ -57,8 +57,8 @@
 | follower        | references   | null: false, foreign_key: true |
 
 ## Association
-  belongs_to :user
-  belongs_to :follower, class_name: 'User'
+- belongs_to :user
+- belongs_to :follower, class_name: 'User'
 
 
 ## profiles テーブル
@@ -80,6 +80,6 @@
 | name            | string       | null: false                    |
 
 ## Association
-  has_many :article_tag_relations
-  has_many :article_tag_relations, dependent: :destroy, foreign_key: :tag_id
-  has_many :articles, through: :article_tag_relations
+- has_many :article_tag_relations
+- has_many :article_tag_relations, dependent: :destroy, foreign_key: :tag_id
+- has_many :articles, through: :article_tag_relations
