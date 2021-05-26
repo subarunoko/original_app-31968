@@ -1,0 +1,1 @@
+$('#like-show-btn-<%= @user.id %>').html("<%= j(render partial: 'relationships/follower_button', locals: { user: @user } ) %>");

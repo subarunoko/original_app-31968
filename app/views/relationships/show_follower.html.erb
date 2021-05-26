@@ -1,0 +1,50 @@
+<div class="allwrapper">
+
+  <%= render "shared/header" %>
+
+  <div class="likes-show-main-container">
+    <%= render "shared/main_sub" %>
+    <div class="likes-show-out-content">
+      <div class="likes-show-in-content">
+        <div class="likes-show-top-content">
+          <div class="block">
+            <div class="block-a">
+            </div>
+            <div class="block-c">
+            </div>
+          </div>
+        </div>
+        <div class="likes-show-bottom-out-content">        
+          <div class="likes-show-bottom-in-content">
+            <div class="likes-show-main-left-content">         
+              <div class="likes-show-main-left-up-content">
+                <h3>フォローされているユーザー</h3><br>
+                <% unless @follows.present? %>
+                  <h4>ユーザーはありません</h4> 
+                <% else %>
+
+                  <%= render partial: "follower", collection: @follows, as: "user" %>
+
+                <% end %>
+              </div>
+              <%# <div class="likes-show-main-left-first-content">
+              </div>
+
+              <div class="likes-show-main-left-second-content">
+              </div>
+
+              <div class="likes-show-main-left-third-content">
+              </div>
+
+              <div class="likes-show-main-left-under-content">
+              </div> %>
+            </div>  
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+
+  <%= render "shared/footer" %>
+
+</div>

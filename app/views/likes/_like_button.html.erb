@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+  <% if Like.find_by(user_id: current_user, article_id: article.id) %>
+  <%# if current_user.like?(user) %>
+    <%= link_to(destroy_like_path(article), method: :delete, remote: true ,class: 'good-icon') do %>
+      <%= image_tag 'good.png' ,class: "good-icon" %>    
+    <% end %>
+  <% else %>
+    <%= link_to(create_like_path(article), method: :post, remote: true ,class: 'good-icon') do %>
+      <%= image_tag 'good.png' ,class: "good-icon" %>
+    <% end %>
+  <% end %>
+<% else %>
+  <%= image_tag 'good.png' ,class: "good-icon" %>    
+<% end %>
+<span class='icon-count'><%=link_to " #{article.likes.count}", like_user_path(article) %></span>

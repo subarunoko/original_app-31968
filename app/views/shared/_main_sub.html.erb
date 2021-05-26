@@ -1,0 +1,29 @@
+      <div class="sub-content">
+        <div class="sub-in-content">
+          <button class="sub-btn">
+            <%= link_to "ホーム", "/", class:"sub-btn-text" %>
+          </button>
+          <button class="sub-btn">
+            <% if user_signed_in? %>
+              <%= link_to "プロフィール", user_path(current_user.id), class:"sub-btn-text" %>
+            <% else%>
+              <%= link_to "プロフィール", new_user_session_path, class:"sub-btn-text" %>
+            <% end %>
+          </button>
+          <button class="sub-btn">
+            <% if user_signed_in? %>
+              <%= link_to "お気に入り", "#", class:"sub-btn-text" %>
+            <% else%>
+              <%= link_to "お気に入り", new_user_session_path, class:"sub-btn-text" %>
+            <% end %>
+          </button>
+          <button class="sub-btn">
+            <% if user_signed_in? %>
+              <%= link_to "チャット", "#", class:"sub-btn-text" %>
+            <% else%>
+              <%= link_to "チャット", new_user_session_path, class:"sub-btn-text" %>
+            <% end %>
+          </button>
+
+        </div>
+      </div>

@@ -1,0 +1,40 @@
+<% @article = article  %>
+<ul class='article-ul'>
+  <li class='article-btn'>
+    <div class="like-content-1st">
+      <%= link_to(article_path(@article), class: 'article-btn-main-text') do %>
+        <span class='article-btn-main-text'><%= @article.title %></span>
+      <% end %>
+    </div>
+
+    <div class="like-content-2nd">
+      <div class="like-content-3rd">
+          <% if @article.user.profile.image.attached? %>
+            <%= link_to image_tag(@article.user.profile.image.variant(resize: '70x70'), class:"like-pro-img"), user_path(@article.user) %>
+          <%else %>
+            <%= link_to image_tag("profile.png", :size => "70x70", class:"like-pro-img"), user_path(@article.user) %>
+          <% end %>
+      </div>
+  
+      <div class="like-content-4th">
+        <h6><span>投稿者:</span>
+        <%= link_to(user_path(@article.user), class: 'article-btn-sub-text') do %>        
+          <span class='article-btn-sub-text'><%= @article.user.nickname %></span>
+        <% end %> &nbsp;
+        <%= article.created_at.to_s(:datetime) %></h6>
+
+        <div class="article-icon">
+          <div class='icon-btn'>
+            <%= image_tag "comment2.png", class:"comment-icon" %>
+            <span class='icon-count'> 0</span>
+          </div>
+          <div class='icon-btn', id="like-btn-<%= @article.id %>" >
+            <%= render partial: "likes/like_button", locals: { article: article } %>
+            <%#= render partial: "likes/like_button", locals: { article: @article, user: @article.user } %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </li>
+</ul>

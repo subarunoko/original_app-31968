@@ -1,0 +1,87 @@
+<%#= フォーム 2分割用 %>
+
+<div class="allwrapper">
+
+  <%= render "shared/new_header" %>
+
+  <div class="sign_up-main-container">
+    <%#= render "shared/main_sub" %>
+    <div class="sign_up-top-content">
+      <div class="block">
+        <div class="block-a">
+          <div class="block-a1-current">
+            <p>会員情報</p>
+          </div>
+          <div class="block-a1">
+            <p>プロフィール</p>     
+          </div>
+          <div class="block-a1">
+            <p>登録確認</p>
+          </div>
+          <div class="block-a1">
+            <p>登録完了</p>
+          </div>
+        </div>
+        <div class="block-b">
+          <div class="block-b1-current">
+          </div>
+          <div class="block-b1">     
+          </div>
+          <div class="block-b1">
+          </div>
+          <div class="block-b1">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sign_up-bottom-out-content">
+      <div class="sign_up-bottom-in-content">
+        <div class="main-left-content">
+          <div class="main-left-top-content">
+            789 <br>
+            <h2>Sign up</h2>
+          </div>
+          <div class="main-left-bottom-content">
+            <%#= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+              <%#= render "devise/shared/error_messages", resource: resource %>
+            <%#= form_for(@user, url: user_registration_path) do |f| %>
+            <%= form_for(@user, url: user_registration_path) do |f| %>            
+              <%= render "devise/shared/error_messages", resource: @user %>
+
+              <div class="user-regist">
+                <%= f.label :nickname %>
+                <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname", class:"user-regist-field" %>
+              </div>
+
+              <div class="user-regist">
+                <%= f.label :email %>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"user-regist-field" %>
+              </div>
+
+              <div class="user-regist">
+                <span><%= f.label :password %>
+                <%= f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上", class:"user-regist-field" %>
+              </div>
+
+              <div class="user-regist">
+                <%= f.label :password_confirmation %>
+                <%= f.password_field :password_confirmation, autocomplete: "new-password", class:"user-regist-field" %>
+              </div>
+
+              <div class="user-regist">
+                <%= f.submit "Next", class:"regist-next-btn"%>
+              </div>
+            <% end %>
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+        <div class="main-right-content">
+          456
+        </div>
+      </div> 
+    </div>
+  </div>
+
+  <%= render "shared/footer" %>
+
+</div>

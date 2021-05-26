@@ -1,0 +1,38 @@
+<div class="allwrapper">
+
+  <%= render "shared/header" %>
+  
+  <% if @articles.nil? || @articles == [] %>
+    <div class="main-container">
+      <%= render "shared/main_sub" %>
+      <div class="main-content">
+        <div class="upper-nil-content">
+          <h5> ■ 記事フィード </h5>
+          <p>トレンド</p>
+        </div>
+        <div class="under-nil-content">
+          <h5> &nbsp; </h5>
+          <h5> ※投稿はありません </h5>
+        </div>        
+      </div>  
+    </div>
+  <% else %>
+    <div class="main-container">
+      <%= render "shared/main_sub" %>
+      <div class="main-content">
+        <div class="upper-content">
+          <h5> ■ 記事フィード </h5>
+          <p>トレンド</p>
+          <%= paginate @articles%>
+        </div>
+        <div class="under-content">
+          <%= render partial: "likes/like", collection: @articles, as: "article" %>
+          <%= paginate @articles%>
+        </div>
+      </div>  
+    </div>
+  <% end %>
+
+  <%= render "shared/footer" %>
+
+</div>

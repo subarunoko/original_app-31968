@@ -1,0 +1,54 @@
+<div class="allwrapper">
+
+  <%= render "shared/new_header" %>
+
+  <div class="sign_up-main-container">
+    <%#= render "shared/main_sub" %>
+    <div class="sign_up-top-content">
+      <div class="block">
+        <div class="block-a">
+          <div class="block-a1">
+            <p>会員情報</p>
+          </div>
+          <div class="block-a1">
+            <p>プロフィール</p>     
+          </div>
+          <div class="block-a1">
+            <p>登録確認</p>
+          </div>
+          <div class="block-a1-current">
+            <p>登録完了</p>
+          </div>
+        </div>
+        <div class="block-b">
+          <div class="block-b1-current">
+          </div>
+          <div class="block-b1-current">     
+          </div>
+          <div class="block-b1-current">
+          </div>
+          <div class="block-b1-current">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sign_up-bottom-out-content">
+      <div class="sign_up-bottom-in-content">
+        <div class="main-content">
+          <div class="upper-nil-content">
+          </div>
+          <div class="under-nil-content">
+            <h5> &nbsp; </h5>
+            <h5> ※登録が完了しました </h5><br>
+            <div class="user-edit-btn">
+              <%= link_to "トップページへ移動する", "/", class: 'user-edit-btn-text' %>
+            </div>
+          </div>        
+        </div>
+      </div>   
+    </div>
+  </div>
+
+  <%= render "shared/footer" %>
+
+</div>

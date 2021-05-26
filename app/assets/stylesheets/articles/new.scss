@@ -1,0 +1,183 @@
+// main部分
+
+//new専用(article)  edit(article)も共用
+.new-main-container {
+  /* display: flex; */
+  /* width: 100vw; */
+  min-height: calc(100vh - 25px);
+  background-color: #f8f8f8;
+  padding-top: 50px;
+}
+
+.new-top-content {
+  width: calc(96vw + 10px);
+  height: 50px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  // border: 1.5px solid #000;
+  background-color: #fff;
+  margin-top: 0.5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.new-top-content input {
+  width: calc(96vw + 10px);
+  height: 50px;
+  padding-left: 12px;
+}
+
+.new-top-content p {
+  margin-bottom: 0;
+}
+
+.new-mid-content {
+  width: calc(96vw + 10px);
+  height: 30px;
+  display: flex;
+  align-items: center;
+  // border: 1.5px solid #000;
+  background-color: #fff;
+  margin-top: 0.5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.new-mid-content input {
+  width: calc(96vw + 10px);
+  height: 30px;
+  padding-left: 12px;
+}
+
+.new-mid-content p {
+  margin-bottom: 0;
+}
+
+.new-bottom-out-content {
+  display: flex;
+  // height: 88%;
+  min-height: calc(100vh - 204px);
+  max-height: calc(100vh - 204px);
+  background-color: #f8f8f8;
+  // overflow-y: auto;
+  // text-align: center;
+}
+
+.new-bottom-out-content label {
+  margin-bottom: 0;
+}
+
+.new-bottom-in-content {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.new-main-left-content {
+  width: calc(96vw + 10px);
+  border: 1.5px solid #000;
+  background-color: #fff;
+  margin-top: 0.5%;
+  overflow-y: auto;
+}
+
+.CodeMirror-scroll {
+  max-height: 400px;
+}
+
+// .new-main-left-content textarea {
+//   width: 100%;
+//   height: calc(100vh - 250px);
+//   resize: none;
+//   border: none;
+// }
+
+
+
+// .new-bottom-out-content {
+//   display: flex;
+//   // height: 88%;
+//   min-height: calc(100vh - 204px);
+//   max-height: calc(100vh - 204px);
+//   background-color: #f8f8f8;
+//   overflow-y: auto;
+//   // text-align: center;
+// }
+
+// .new-bottom-out-content label {
+//   margin-bottom: 0;
+// }
+
+// .new-bottom-in-content {
+//   display: flex;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+
+// .new-main-left-content {
+//   width: 48vw;
+//   border: 1.5px solid #000;
+//   background-color: #fff;
+//   margin: 0.5% 5px 0% 0px;
+// }
+
+// .new-main-left-content textarea {
+//   width: 100%;
+//   height: calc(100vh - 250px);
+//   resize: none;
+//   border: none;
+// }
+
+// .new-main-right-content {
+//   width: 48vw;
+//   border: 1.5px solid #000;
+//   background-color: #fff;
+//   margin: 0.5% 0px 0% 5px;
+// }
+
+
+
+.new-footer-content {
+  width: calc(96vw + 10px);
+  height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  // border: 1px solid #000;
+  background-color: #f8f8f8;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  margin-left: auto;
+  margin-right: auto;  
+  // align-items: center;
+}
+
+.new-article-submit-btn {
+  color: #f8f8f8;
+  background-color: #55c500; 
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 2px 4px;
+}
+
+//エラー時
+.error-alert {
+  width: calc(96vw + 10px);
+  height: 70px;
+  align-items: center;
+  align-items: center;
+  border: none;
+  // border: 1px solid #000;
+  color: red;
+  background-color: #f8f8f8;
+  margin-top: 0.5%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2vw;
+
+}
+
+
+// /main部分

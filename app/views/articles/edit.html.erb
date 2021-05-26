@@ -1,0 +1,45 @@
+<%#= render 'shared/article_new' %>
+<div class="allwrapper">
+
+  <%= render "shared/new_header" %>
+
+  <div class="new-main-container">
+    <%#= render "shared/main_sub" %>
+
+    <%# edit, destroy action %>  
+    <%# elsif params[:action] == "edit" || "update" || "destory" %>
+      <%= form_with model: @form, url: article_path(params[:id]), method: :put, local: true do |f| %>
+
+      <%# エラー発生時の表示 %>
+      <%= render 'shared/error_messages', model: @form %>
+
+      <div class="new-top-content">
+        <%= f.text_field :title, autofocus: true, class:"article-title", placeholder:"タイトル" %>
+        <%#= f.text_field :title, autofocus: true, autocomplete: "title", placeholder:"タイトル" %>
+      </div>
+      <div class="new-mid-content">
+        <%= f.text_field :tag_ids, class:"article-tag", placeholder:"タグ (登録できるのは5つまで　タグ切りは半角スペース)" %>
+      </div>
+      <div class="new-bottom-out-content">
+        <div class="new-bottom-in-content">
+          <div class="new-main-left-content">
+            <%#= f.label "本文" %>
+            <%#= f.text_area :body %>
+            <%= f.text_area :body, { id: "editor", placeholder: "本文" } %>
+          </div>
+        </div>     
+      </div>
+      <div class="new-footer-content">
+          <div class="new-footer-left-content">
+          </div>
+          <div class="new-footer-right-content">
+            <%= f.submit "編集する", class:"new-article-submit-btn" %>
+            <% end %>
+          </div>
+      </div>
+    <%# end %>
+  </div>
+
+  <%= render "shared/footer" %>
+
+</div>

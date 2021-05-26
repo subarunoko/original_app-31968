@@ -1,0 +1,22 @@
+<div class="block-d">
+<% @user = user %>
+
+      <ul class='like-ul'>
+        <li class='like-btn'>
+          <div class="like-user-name">
+            <h6><span>投稿者:</span>
+            <%= link_to(user_path(@user), class: 'like-btn-sub-text') do %>        
+              <span class='like-btn-sub-text'><%= @user.nickname %></span>
+            <% end %>
+          </div>  
+          
+          <% if user_signed_in? && current_user != @user %>
+            <div class="like-show-btn" id="like-show-btn-<%= @user.id %>">
+              <%= render partial: "relationships/follower_button", locals: { user: @user } %>
+            </div>  
+          <% end %>
+        </li>
+      </ul>
+
+  
+</div>

@@ -1,0 +1,25 @@
+<div class="allwrapper">
+
+  <%= render "shared/header" %>
+
+  <div class="main-container">
+    <%= render "shared/main_sub" %>
+    <div class="main-content">
+      article destroy_caution.html<br>
+      <p>以下の記事を削除します。</p>
+      <p>よろしいですか？</p>
+      <li>
+        <%= link_to "記事詳細ページへ戻る", article_path(params[:id]) %>
+      </li>
+      <li>
+        <%= link_to "削除する", article_path(@article), method: :delete %>
+      </li>
+      <li>
+        <%= link_to "トップページへ戻る", "/", class:"hoge" %>
+      </li>
+    </div>
+  </div>
+
+  <%= render "shared/footer" %>
+
+</div>

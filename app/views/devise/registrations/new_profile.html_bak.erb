@@ -1,0 +1,82 @@
+<div class="allwrapper">
+
+  <%= render "shared/new_header" %>
+
+  <div class="sign_up-main-container">
+    <%#= render "shared/main_sub" %>
+    <div class="sign_up-top-content">
+      <div class="block">
+        <div class="block-a">
+          <div class="block-a1">
+            <p>会員情報</p>
+          </div>
+          <div class="block-a1-current">
+            <p>プロフィール</p>     
+          </div>
+          <div class="block-a1">
+            <p>登録確認</p>
+          </div>
+          <div class="block-a1">
+            <p>登録完了</p>
+          </div>
+        </div>
+        <div class="block-b">
+          <div class="block-b1-current">
+          </div>
+          <div class="block-b1-current">     
+          </div>
+          <div class="block-b1">
+          </div>
+          <div class="block-b1">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sign_up-bottom-out-content">
+      <div class="sign_up-bottom-in-content">
+        <div class="main-left-content">
+          <div class="main-left-top-content">
+            <h2>Profile</h2>
+          </div>
+          <div class="main-left-bottom-content">
+            <%= form_for(@profile, url: check_profile_path) do |f| %>
+              <%= render "devise/shared/error_messages", resource: @profile %>
+
+              <div class="user-regist">
+                <span><%= f.label "学習言語" %></span>
+                <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {class:"select-box", id:"user-language"}) %>
+                <%#= f.text_field :language, autofocus: true, autocomplete: "language" %>
+              </div>
+
+              <div class="user-regist">
+                <span><%= f.label "プロフィール" %></span>
+                <%= f.text_field :description, autofocus: true, autocomplete: "description", placeholder: "250文字以内", class:"user-regist-text-field" %>
+              </div>
+
+              <%# <div class="click-upload"> %>
+              <div class="user-regist">
+                <p>プロフィール画像</p>              
+                <p>クリックしてファイルをアップロード</p>
+                <%#= f.file_field :image, id:"item-image" %>
+                <label class="form-image">
+                  <%= image_tag "profile.png", class:"pro-img" %>
+                  <%#= image_tag('no-image.png', size: '185x50', class:"user-img") %>
+                  <%= f.file_field :image, name: 'item[images][]', id: 'item-image', class: "hidden" %>
+                  <div id="image-list" class="image-list"></div>
+                </label>
+              </div>
+
+              <div class="user-regist">
+                <%= f.submit "次へ", class:"regist-next-btn" %>
+              </div>
+            <% end %>
+            <%#= render "devise/shared/links" %>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+
+  <%= render "shared/footer" %>
+
+</div>

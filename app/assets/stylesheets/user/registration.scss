@@ -1,0 +1,306 @@
+/* main部分 */
+
+/* new専用(user) */
+
+.sign_up-main-container {
+  /* display: flex; */
+  /* width: 100vw; */
+  min-height: calc(100vh - 25px);
+  /* max-height: calc(100vh - 25px); */
+  background-color: #f8f8f8;
+  padding-top: 50px;
+}
+
+.sign_up-top-content {
+  width: calc(80vw + 20px);
+  /* min-height: 70px; */
+  display: flex;
+  /* align-items: center; */
+  /* border: 1.5px solid #000; */
+  margin-top: 1vh;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+}
+
+.block {
+  width: 100%;
+}
+
+.block-a {
+  width: 70%;
+  min-height: 20px;
+  display: flex;
+  margin-top: 1vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.block-a1 {
+  width: 25%;
+  text-align: center;
+}
+
+.block-a1>p {
+  margin-bottom: 0px;
+  font-size: 12px;
+  color:#dbdbda;
+}
+
+.block-a1-current {
+  width: 25%;
+  text-align: center;
+}
+
+.block-a1-current>p {
+  margin-bottom: 0px;
+  font-size: 12px;
+  font-weight: bold;
+  color:red;
+}
+
+.block-b {
+  width: 70%;
+  min-height: 20px;
+  display: flex;
+  /* align-items: center; */
+  /* border: 1.5px solid #000; */
+  /* margin-top: 1%; */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1vh;
+}
+
+.block-b1 {
+  width: 25%;
+  display: flex;
+  border: 1.5px solid #000;
+  background-color: #dbdbda;
+  margin: 0px 3px;
+  transform: skewX(30deg);
+}
+
+.block-b1-current {
+  width: 25%;
+  display: flex;
+  border: 1.5px solid #000;
+  background-color: red;
+  margin: 0px 3px;
+  transform: skewX(30deg);
+}
+
+
+
+.sign_up-bottom-out-content {
+  display: flex;
+  /* min-height: 73%; */
+  width: calc(80vw + 20px);
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+
+  /* 登録完了対策 */
+  min-height:80vh;
+}
+
+.sign_up-bottom-in-content {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.main-left-content {
+  width: 40vw;
+  // border: 1.5px solid #000;
+  margin: 1% 10px 1% 0px;
+}
+
+.main-left-top-content>h2 {
+  font-weight: bold;
+}
+
+.user-regist{
+  display: block;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  padding-left: 6.6vw;
+}
+
+.user-regist>p {
+  margin-bottom: 0px;
+}
+
+.user-regist-field{
+  display: block;
+  width: 80%;
+  text-align: left;
+}
+
+/* profile descript 用 */
+.user-regist-text-field{
+  display: block;
+  width: 80%;
+  height: 70px;
+  text-align: left;
+}
+
+.user-regist-text-field>input{
+  align-items: stretch;
+}
+
+
+
+/* 出品画像 */
+// .img-upload {
+//   /* display: flex;
+//   justify-content: space-between; */
+//   flex-wrap: wrap;
+//   padding: 2vh 0;
+//   /* text-align: center; */
+// }
+
+// .click-upload {
+//   margin: 15px 0;
+//   min-width: 250px;
+// }
+
+// .click-upload>p {
+//   margin-bottom: 15px;
+// }
+
+// .image-list img{
+//   display: flex;
+//   border-radius: 50%;
+// } 
+
+.image-element{
+  border: 0.5px solid #8a8989ea;
+  margin: 10px 1px;
+  height: 100px;
+  width: 24.5%;
+  /* display: flex; */
+}
+
+.form-image {
+  width: 100%;
+}
+
+.pro-img {
+  width: 40%;
+  height: 20vh;
+}
+
+
+.hidden {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+.regist-next-btn {
+  // width: 40%;
+  width: 150px;
+  color: #f8f8f8;
+  background-color: #55c500; 
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 2px 4px;
+  font-size: 14px;
+  margin-top: 2vh;
+}
+
+.user-regist-btn{
+  width: 60%;
+  display: flex;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  // padding-left: 6.6vw;
+  margin-left: 25%;
+}
+
+.regist-back-btn {
+  width: 40%;
+  color: #f8f8f8;
+  background-color: red; 
+  border: 1px solid #000;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 5px;
+  padding: 2px 4px;
+  font-size: 14px;
+  margin-top: 2vh;
+  .regist-back-btn-text {
+    display: block;  //button全体にリンクがかかる
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: red;
+    font-size: 14px;
+  }
+}
+
+.regist-submit-btn {
+  width: 40%;
+  color: #f8f8f8;
+  background-color: #55c500; 
+  border: 1px solid #000;
+  margin-left: 2px;
+  margin-right: 2px;
+  border-radius: 5px;
+  padding: 2px 4px;
+  font-size: 14px;
+  margin-top: 2vh;
+  .regist-submit-btn-text {
+    display: block;  //button全体にリンクがかかる
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    background-color: #55c500;
+    font-size: 14px;
+  }
+}
+
+
+
+.main-right-content {
+  width: 40vw;
+  border: 1.5px solid #000;
+  margin: 1% 0px 1% 10px;
+}
+
+
+
+/* エラー時 */
+.devise-error-alert {
+}
+
+.devise-out-error-alert {
+  /* height: 70px; */
+  padding-left: 6.6vw;
+}
+
+.devise-in-error-alert {
+  width: 40vw;
+  /* height: 70px; */
+  text-align: left;
+  list-style: none;
+  border: none;
+  color: red;
+}
+
+
+
+
+
+
+
+
+/* //main部分 */

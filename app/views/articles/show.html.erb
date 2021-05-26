@@ -1,0 +1,68 @@
+<div class="allwrapper">
+
+  <%= render "shared/header" %>
+
+  <%# <div class="show-main-container">  #下と切替え用のため 削除禁止  %>  
+  <div class="main-container">
+    <%= render "shared/main_sub" %>
+    <div class="show-content">
+      <%# エラー発生時の表示 %>
+      <%#= render 'shared/error_messages', model: @article %>
+
+      <div class="show-top-content">
+        <div class="show-top-left-content">
+          <%= link_to(user_path(@article.user), class: 'article-btn-sub-text') do %>        
+            <span class='article-btn-sub-text'><strong><%= @article.user.nickname %></strong>さん</span>
+          <% end %>
+          <%#= "が #{@article.created_at.to_s(:datetime)}に更新" %>
+          <%= "が #{ l @article.created_at, format: :long_non_second }に更新" %>
+        </div>
+        <div class="show-top-right-content">
+        <% if current_user == @article.user %>
+            <button class="show-article-del-btn">
+              <%= link_to "削除する", destroy_caution_article_path(params[:id]), class:"show-article-del-btn-text" %>
+            </button>
+            <button class="show-article-edit-btn">
+              <%= link_to "編集する", edit_article_path(params[:id]), class:"show-article-edit-btn-text" %>
+            </button>
+        <% end %>    
+        </div>
+      </div>
+
+      <div class="show-mid-first-content">
+        <h1><strong><%= @article.title %></strong></h1>
+      </div>
+      <div class="show-mid-second-content">
+        <% @article.tags.each do |tag_name| %>
+        <button class="show-tag-btn">
+           <%=link_to "##{tag_name.name}", tag_articles_path(tag_id: tag_name.id), class:"show-tag-btn-text" %>
+          <%#= tag_name.name %>
+        </button>
+        <% end %>
+
+        <%# <p>タグ付けを実装するスペース</p> %>
+      </div>
+
+      <div class="show-bottom-out-content">
+        <div class="show-bottom-in-content">
+          <div class="show-main-left-content">
+            <%#= @article.body %>
+            <%#= markdown(@article.body).html_safe %>
+            <%= markdown(@article.body) %>
+            <%#= toc(@article.body) %>
+            <%#= markdown(@article.body) %>
+          </div>
+        </div>     
+      </div>
+      <div class="show-footer-content">
+        <div class="show-footer-left-content">
+        </div>
+        <div class="show-footer-right-content">
+        </div>
+      </div>
+    </div>  
+  </div>
+
+  <%= render "shared/footer" %>
+
+</div>

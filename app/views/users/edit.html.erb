@@ -1,0 +1,71 @@
+<div class="allwrapper">
+
+  <%= render "shared/new_header" %>
+
+  <div class="user-edit-main-container">
+    <%= render "shared/main_sub" %>
+    <div class="user-edit-out-content">
+      <div class="user-edit-in-content">
+        <div class="user-edit-main-left-content">
+          <div class="user-edit-main-left-up-content">
+            <h2 style="display:inline">Edit </h2><h6 style="display:inline">プロフィール編集画面</h6>
+         
+            <div class="user-edit-regist">
+              <p>プロフィール画像</p>              
+              <p>クリックしてファイルをアップロード</p>
+              <%#= f.file_field :image, id:"item-image" %>
+              <label class="form-image-1">
+              <%= form_with(model: @profile, url: user_path(params[:id]), method: :put, local: true) do |f| %>
+                <% if @user.profile.image.attached? %>
+                  <%= image_tag @profile.image.variant(resize: '150x150'), class:"show-pro-img" %>
+                <%else %>
+                  <%= image_tag "profile.png", :size => "150x150", class:"show-pro-img" %>
+                <% end %>
+                
+                <%= f.file_field :image, id: 'item-image', class: "hidden" %>
+                <div id="image-list" class="image-list"></div>
+              </label>
+            </div>
+
+          </div>
+          <div class="user-edit-main-left-first-content">
+            <%= render "devise/shared/error_messages", resource: @profile %>
+
+            <div class="user-edit-regist">
+              <span><%= f.label "学習言語" %></span>
+              <%= f.collection_select(:language_id, Language.all, :id, :name, {}, {class:"select-box", id:"user-language"}) %>
+            </div>
+          </div>
+
+          <div class="user-edit-main-left-second-content">
+            <div class="user-edit-regist">
+              <span><%= f.label "プロフィール説明" %></span>
+              <%= f.text_field :description, autofocus: true, autocomplete: "description", placeholder: "250文字以内", class:"user-edit-text-field" %>
+            </div>
+          </div>
+
+          <div class="user-edit-main-left-third-content">
+            <div class="user-edit-regist">
+              <%= f.submit "編集する", class:"regist-next-btn" %>
+            </div>
+            <% end %>
+
+            <div class="user-edit-regist">
+              <%= link_to "メールアドレス等の変更はこちら", edit_user_registration_path %>
+            </div>
+          </div>
+
+          <div class="user-edit-main-left-under-content">
+          </div>
+        </div>
+
+        <%# <div class="user-edit-main-right-content">
+        789
+        </div> %>
+      </div> 
+    </div>
+  </div>
+
+  <%= render "shared/footer" %>
+
+</div>

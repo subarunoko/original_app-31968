@@ -1,0 +1,122 @@
+<div class="allwrapper">
+
+  <%= render "shared/new_header" %>
+
+  <div class="edit-main-container">
+    <%= render "shared/main_sub" %>
+    <div class="edit-out-content">
+      <div class="edit-in-content">
+        <div class="edit-main-left-content">
+          <div class="edit-main-left-up-content">
+            <h5>プロフィール編集画面</h5>
+          </div>
+
+          789 <br>
+          <h2>Edit</h2>
+
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+
+            <div class="field">
+              <%= f.label :nickname %><br />
+              <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password %>
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "new-password" %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+            </div>
+
+            <div class="actions">
+              <%= f.submit "Edit" %>
+            </div>
+          <% end %>
+
+
+
+          <div class="edit-main-left-first-content">
+          </div>
+
+          <div class="edit-main-left-second-content">
+          </div>
+
+          <div class="edit-main-left-third-content">
+          </div>
+
+          <div class="edit-main-left-under-content">
+          </div>
+
+        </div>
+        <div class="edit-main-right-content">
+          <div class="edit-main-right-up-content">
+            <h5>プロフィール編集画面</h5>
+            <%= image_tag "no-image.png", class:"user-img" %>
+          </div>
+
+          <div class="edit-main-right-first-content">
+            <h4><%= @user.nickname %></h4>
+          </div>
+
+          <div class="edit-main-right-second-content">
+          <% if user_signed_in? %>
+              <% if current_user.id != @user.id %>
+                <div class="user-edit-btn">
+                  <%= link_to "フォローする", "#", class: 'user-edit-btn-text' %>
+                </div>
+              <% else %>
+                <div class="user-edit-btn">
+                  <%#= link_to "編集する", edit_user_path(params[:id]), class: 'user-edit-btn-text' %>
+                </div>
+              <% end %>
+          <% end %>
+          </div>
+
+          <div class="edit-main-right-third-content">
+          <h6>＊プロフィール説明＊</h6>
+          </div>
+
+          <div class="edit-main-right-under-content">
+            <table>  
+              <tr>
+                <td>投稿</td><td><%#= @article.count %> </td>
+              </tr>
+
+              <tr>
+                <td>いいね</td><td>0</td>
+              </tr>
+
+              <tr>
+                <td>コメント</td><td>0</td>
+              </tr>
+            
+              <tr>
+                <td>フォロー</td><td>0</td>
+              </tr>
+
+              <tr>
+                <td>フォロワー</td><td>0</td>
+              </tr>
+            
+            </table>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+
+  <%= render "shared/footer" %>
+
+</div>

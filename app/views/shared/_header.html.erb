@@ -1,0 +1,56 @@
+<div class="header-container">
+  <div class="header-content">
+    <div class="header-left">
+      <div class="header-title">
+        <%= link_to "TWIQ", "/", class:"header-title-text" %>
+      </div>
+      <div class="search-content">
+        <form class="search-form" action="/articles/search" method="get">
+          <input class='input-box' placeholder='キーワードから探す' type="text" name="keyword" id="keyword" > 
+          <button class="search-button">
+            <%= image_tag "search.png", class:"search-icon" %>
+          </button>
+        </form>        
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="header-content-1st">
+        <% if user_signed_in? %>
+          <% if @user_prof.profile.image.attached? %>
+            <%= link_to image_tag(@user_prof.profile.image.variant(resize: '70x70'), class:"header-pro-img"), user_path(@user_prof) %>
+          <%else %>
+            <%= link_to image_tag("profile.png", :size => "70x70", class:"header-pro-img"), user_path(@user_prof) %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="header-content-2nd">
+        <% if user_signed_in? %>
+          <div class="regist-btn">
+            <%= link_to "投稿する", new_article_path, class: 'regist-btn-text' %>
+          </div>
+          <div class="sign_in-btn">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'sign_in-btn-text' %>
+          </div>
+        <% else %>
+          <div class="regist-btn">
+            <%= link_to "ユーザー登録", new_user_registration_path, class: 'regist-btn-text' %>
+          </div>
+          <div class="sign_in-btn">
+            <%= link_to "ログイン", new_user_session_path, class: 'sign_in-btn-text' %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+  <div class="header-bottom-content">
+    <div class="header-bottom-left">
+    </div>
+    <div class="header-bottom-right">
+      <% if user_signed_in? %>     
+        <%= link_to "こんにちは #{current_user.nickname} さん", user_path(current_user.id), class: 'header-bottom-right-text' %>
+      <% end %>
+    </div>
+  </div>
+</div>

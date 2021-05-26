@@ -1,0 +1,96 @@
+<div class="allwrapper">
+
+  <%= render "shared/new_header" %>
+
+  <div class="users-show-main-container">
+    <%= render "shared/main_sub" %>
+    <div class="users-show-out-content">
+      <div class="users-show-in-content">
+        <div class="users-show-main-left-content">
+          <div class="users-show-main-left-up-content">
+            <h2 style="display:inline">Profile </h2><h6 style="display:inline">プロフィール画面</h6>
+            
+            <div class="user-edit-regist">
+              <% if @user.profile.image.attached? %>
+                <%= image_tag @profile.image.variant(resize: '150x150'), class:"show-pro-img" %>
+              <%else %>
+                <%= image_tag "profile.png", :size => "150x150", class:"show-pro-img" %>
+              <% end %>
+            </div>
+            
+          </div>
+
+          <div class="users-show-main-left-first-content">
+            <h4><%= @user.nickname %></h4>
+          </div>
+
+          <% if user_signed_in? %>
+            <% if @user.nickname != "ゲスト" %>
+              <div class="users-show-main-left-second-content">
+                  <% if current_user.id != @user.id %>
+                    <div class="user-edit-btn">
+                      <% unless current_user == @user %>
+                        <%= render "relationships/follow_unfollow_button", user: @user %>
+                        <%#= render "relationships/follower_button", user: @user %>
+                      <% end %>
+                    </div>
+                  <% else %>
+                    <div class="user-edit-btn">
+                      <%#= link_to "編集する", edit_user_path(params[:id]), class: 'user-edit-btn-text' %>
+                      <%#= link_to "編集する", edit_user_registration_path, class: 'user-edit-btn-text' %>
+                      <%= link_to "編集する", edit_user_path(params[:id]), class: 'user-edit-btn-text' %>
+                    </div>
+                  <% end %>
+              </div>
+            <% end %>  
+          <% end %>
+
+          <div class="users-show-main-left-third-content">
+            <span>学習言語:　</span>
+            <%= @user.profile.language.name %>
+          </div>
+
+          <div class="users-show-main-left-4th-content">
+            <h6>＊プロフィール説明＊</h6>
+          </div>
+
+          <div class="users-show-main-left-5th-content">
+            <% unless @user.profile.nil? %>
+              <%= @user.profile.description %>
+            <% end %>
+          </div>          
+
+          <div class="users-show-main-left-under-content">
+            <table>  
+              <tr>
+                <td>投稿</td><td><%= link_to "#{@article.count}", articles_show_article_user_path(params[:id]) %> </td>
+              </tr>
+
+              <tr>
+                <td>いいね</td><td> <%= @like.count %> </td>
+              </tr>
+
+              <tr>
+                <td>コメント</td><td>0</td>
+              </tr>
+            
+              <tr>
+                <td>フォロー</td><td><%= link_to "#{@user.followings.count}", following_user_path(params[:id]) %> </td>
+              </tr>
+
+              <tr>
+                <td>フォロワー</td><td><%= link_to "#{@user.followers.count}", follower_user_path(params[:id]) %> </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <%# <div class="users-show-main-right-content">
+          789 <br>
+        </div>         %>
+      </div> 
+    </div>
+  </div>
+
+  <%= render "shared/footer" %>
+
+</div>

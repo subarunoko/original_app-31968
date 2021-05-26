@@ -1,0 +1,98 @@
+<div class="allwrapper">
+
+  <%= render "shared/new_header" %>
+
+  <div class="sign_up-main-container">
+    <%#= render "shared/main_sub" %>
+    <div class="sign_up-top-content">
+      <div class="block">
+        <div class="block-a">
+          <div class="block-a1">
+            <p>会員情報</p>
+          </div>
+          <div class="block-a1">
+            <p>プロフィール</p>     
+          </div>
+          <div class="block-a1-current">
+            <p>登録確認</p>
+          </div>
+          <div class="block-a1">
+            <p>登録完了</p>
+          </div>
+        </div>
+        <div class="block-b">
+          <div class="block-b1-current">
+          </div>
+          <div class="block-b1-current">     
+          </div>
+          <div class="block-b1-current">
+          </div>
+          <div class="block-b1">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="sign_up-bottom-out-content">
+      <div class="sign_up-bottom-in-content">
+        <div class="main-left-content">
+          <div class="main-left-top-content">
+            <h2>Check</h2>
+          </div>
+          <div class="main-left-bottom-content"> 
+            <%= form_for @profile do |f| %>
+              <%#= render "devise/shared/error_messages", resource: @profile %>
+              
+              <div class="user-regist">
+                <p>以下の内容で登録します。よろしいですか？</p>
+              </div>
+
+              <div class="user-regist">
+                <span><%= f.label "ニックネーム：" %></span>
+                <%= @user.nickname %>
+              </div>
+
+              <div class="user-regist">
+                <span><%= f.label "メールアドレス：" %></span>
+                <%= @user.email %>
+              </div>
+
+              <div class="user-regist">
+                <span><%= f.label "パスワード：" %></span>
+                <%= @user.password %>
+              </div> 
+
+              <div class="user-regist">
+                <span><%= f.label "学習言語：" %></span>
+                <%= @profile.language.name %>
+              </div>
+
+              <div class="user-regist">
+                <span><%= f.label "プロフィール：" %></span>
+                <br>
+                <%= @profile.description %>
+              </div>
+
+              <%# <div class="user-regist-btn"> %>
+                <%# <div class="regist-back-btn"> %>
+                  <%#= link_to "戻る", "/", class: 'regist-back-btn-text' %>
+                <%#= link_to "戻る", "/", class: 'regist-back-btn' %>
+                <%#= f.submit "登録する", class:"regist-submit-btn" %>
+              <div class="user-regist-btn">
+                <div class="regist-back-btn">
+                  <%= link_to "戻る", "/", class: 'regist-back-btn-text' %>
+                </div>
+                <div class="regist-submit-btn">
+                  <%= link_to "登録する", profiles_path, method: :post,  class: 'regist-submit-btn-text' %>
+                </div>
+              </div>  
+            <% end %>
+            <%#= render "devise/shared/links" %>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+
+  <%= render "shared/footer" %>
+
+</div>
