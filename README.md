@@ -69,7 +69,7 @@
 | description     | string       |                                |
 | user            | references   | null: false, foreign_key: true |
 
-### Association
+## Association
 - has_one :user
 
 
