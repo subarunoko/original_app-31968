@@ -8,6 +8,17 @@
 | email               | string    | null: false, unique: true |
 | encrypted_password  | string    | null: false               |
 
+## Association
+  has_many :articles
+  has_many :likes, dependent: :destroy
+  has_many :like_articles, through: :likes, source: :article
+  has_many :articles, through: :likes
+  has_many :relationships, dependent: :destroy
+  has_many :followings, through: :relationships, source: :follower
+  has_many :passive_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
+  has_many :followers, through: :passive_relationships, source: :user
+  has_one :profile
+
 
 ## articles テーブル
 
@@ -19,14 +30,19 @@
 
 ## Association
 - belongs_to :user
+  has_many :likes
+  has_many :users, through: :likes
+  has_many :like_users, through: :likes, source: :user
+  has_many :article_tag_relations, dependent: :destroy
+  has_many :tags, through: :article_tag_relations, dependent: :destroy
 
 
 ## likes テーブル
 
-| Column           | Type         | Options                        |
-| ---------------- | ------       | -----------                    |
-| user             | references   | null: false, foreign_key: true |
-| article          | references   | null: false, foreign_key: true |
+| Column          | Type         | Options                        |
+| --------------- | ------       | -----------                    |
+| user            | references   | null: false, foreign_key: true |
+| article         | references   | null: false, foreign_key: true |
 
 ## Association
   belongs_to :user
@@ -35,43 +51,35 @@
 
 ## relationships テーブル
 
-| Column           | Type         | Options                        |
-| ---------------- | ------       | -----------                    |
-| user             | references   | null: false, foreign_key: true |
-| follower         | references   | null: false, foreign_key: true |
+| Column          | Type         | Options                        |
+| --------------- | ------       | -----------                    |
+| user            | references   | null: false, foreign_key: true |
+| follower        | references   | null: false, foreign_key: true |
 
 ## Association
   belongs_to :user
   belongs_to :follower, class_name: 'User'
 
 
+## profiles テーブル
 
-
-
-## delivery_info テーブル
-
-| Column           | Type         | Options                        |
-| ---------------- | ------       | -----------                    |
-| postal_code      | string       | null: false                    |
-| prefecture_id    | integer      | null: false                    |
-| city             | string       | null: false                    |
-| house_number     | string       | null: false                    |
-| building_name    | string       |                                |
-| phone_number     | string       | null: false                    |
-| order            | references   | null: false, foreign_key: true |
-
-## Association
-- belongs_to :order
-
-
-
-## profile テーブル
-| family_name         | string       | null: false                    |
-| first_name          | string       | null: false                    |
-| family_name_kana    | string       | null: false                    |
-| first_name_kana     | string       | null: false                    |
-| birthday            | date         | null: false                    |
-| user                | references   | null: false, foreign_key: true |
+| Column          | Type         | Options                        |
+| --------------- | ------       | -----------                    |
+| language_id     | string       | null: false                    |
+| description     | string       |                                |
+| user            | references   | null: false, foreign_key: true |
 
 ### Association
-- has_many :articles
+- has_one :user
+
+
+## tags テーブル
+
+| Column          | Type         | Options                        |
+| --------------- | ------       | -----------                    |
+| name            | string       | null: false                    |
+
+## Association
+  has_many :article_tag_relations
+  has_many :article_tag_relations, dependent: :destroy, foreign_key: :tag_id
+  has_many :articles, through: :article_tag_relations
