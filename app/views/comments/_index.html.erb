@@ -1,0 +1,36 @@
+<div id="show-comment-content">
+  <p> < コメント一覧 > </p>
+  <% if @comments.blank? %>
+    <p> この記事にコメントはありません </p>
+  <% else %>
+
+    <div class="show-comment-content">
+      <%#= render partial: "comments/index", collection: @comments, as: "comment" %>
+
+      <p><%= "こちらの記事へのコメント:　#{@comments.count}件" %></p>
+      <%= paginate @comments %>
+      <% @comments.each do |comment| %>
+        <ul class='comment-ul'>
+          <p><%= link_to(user_path(comment.user), class: 'article-btn-sub-text') do %>        
+            <span class='article-btn-sub-text'><%= comment.user.nickname %></span>
+          <% end %></p>
+          <p><%= "コメント:　#{comment.text}" %><p>
+
+          <% if current_user == comment.user %>
+            <button class="show-comment-del-btn">
+              <%= link_to( "コメント削除", comment_destroy_article_path(comment), html: { method: :delete }, remote: true, class: 'show-comment-del-btn-text' ) %>
+            </button>
+          <% end %>
+
+        </ul>
+      <% end %>
+    
+    
+    
+    </div>
+
+  <% end %>
+</div>
+
+
+

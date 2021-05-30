@@ -26,11 +26,10 @@
         <div class="article-icon">
           <div class='icon-btn'>
             <%= image_tag "comment2.png", class:"comment-icon" %>
-            <span class='icon-count'> 0</span>
+            <span class='icon-count'><%= @article.comments.count %></span>
           </div>
           <div class='icon-btn', id="like-btn-<%= @article.id %>" >
             <%= render partial: "likes/like_button", locals: { article: article } %>
-            <%#= render partial: "likes/like_button", locals: { article: @article, user: @article.user } %>
           </div>
         </div>
       </div>

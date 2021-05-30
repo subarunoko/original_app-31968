@@ -19,6 +19,8 @@ class User < ApplicationRecord
   has_one :profile
   # has_one_attached :image  #<<<<<< imagemagik対応(※画像１枚)
 
+  has_many :comments, dependent: :destroy
+
   with_options presence: true do
     validates :nickname
     # validates :password,format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/, message: "英字と数字の両方を含めて設定してください" }
