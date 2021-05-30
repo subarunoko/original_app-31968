@@ -21,6 +21,9 @@ class User < ApplicationRecord
 
   has_many :comments, dependent: :destroy
 
+  has_many :entries, dependent: :destroy
+  has_many :chats, dependent: :destroy
+
   with_options presence: true do
     validates :nickname
     # validates :password,format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/, message: "英字と数字の両方を含めて設定してください" }
