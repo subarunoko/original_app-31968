@@ -1,0 +1,3 @@
+$('#show-comment-content').html("<%= j(render 'comments/index', locals: { comments: @article.comments } ) %>");
+$("textarea").val('')
+console.log("test");

@@ -34,7 +34,10 @@ Rails.application.routes.draw do
       get "update_done"
       get "destroy_caution"      
       get "destroy_done"
+      get "comments/destroy", to: "comments#destroy", as: "comment_destroy"
     end
+
+    resources :comments, only: [:create]
   end
 
   root to: 'articles#index'

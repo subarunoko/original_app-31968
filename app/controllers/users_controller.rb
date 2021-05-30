@@ -8,9 +8,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @nickname = @user.nickname
-    # binding.pry
-    @article = Article.where(user_id: params[:id])
+    # @article = Article.where(user_id: params[:id])
+    @article = @user.articles
+    @comment = @user.comments 
     @like = Like.where(user_id: params[:id])
 
     # binding.pry

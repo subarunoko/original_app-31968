@@ -43,8 +43,8 @@
         <%# <p>タグ付けを実装するスペース</p> %>
       </div>
 
-      <div class="show-bottom-out-content">
-        <div class="show-bottom-in-content">
+      <div class="show-mid-third-content">
+        <div class="show-mid-third-in-content">
           <div class="show-main-left-content">
             <%#= @article.body %>
             <%#= markdown(@article.body).html_safe %>
@@ -52,8 +52,63 @@
             <%#= toc(@article.body) %>
             <%#= markdown(@article.body) %>
           </div>
-        </div>     
+        </div>
       </div>
+
+      <div class="show-mid-4th-content">
+        <div class="show-mid-4th-in-content">
+          <h5>コメント</h5>
+          <% unless user_signed_in? %>
+            <div class="show-mid-4th-up-content">
+              <p> コメントの投稿には新規登録/ログインが必要です </p><br>
+            </div>
+          <% else %>
+            <% if current_user == @article.user %>
+              <div class="show-mid-4th-up-content">
+              </div>
+            <% else %>
+              <div class="show-mid-4th-up-content">
+                <%= form_for [@article, @comment], url: article_comments_path(@article), remote: true do |f| %>
+                <%#= form_with model: [@article, @comment], url: article_comments_path(@article), remote: true do |f| %>
+                <%#= form_with model: [@article, @comment], remote: true do |f| %>
+                  <p> 相手のことを考え丁寧なコメントを心がけましょう </p>
+                  
+                  <%# エラー発生時の表示 %>
+                  <% if @error_comment.present? %>
+                    <div class="error-alert">
+                      <ul>
+                        <% @error_comment.errors.full_messages.each do |message| %>
+                        <li class='error-message'><%= message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+
+                  <%= f.text_area :text, { id: "comment", placeholder: "テキストを入力する", class: "show-comment" } %>
+                  <%#= f.submit "コメント", class:"new-article-submit-btn" %>
+                <%# end %>
+              </div>
+              <div class="show-mid-4th-bottom-content">
+                <div class="show-mid-4th-left-content">
+                </div>
+                <div class="show-mid-4th-right-content">
+                  <%= f.submit "コメント", class:"new-article-submit-btn" %>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>  
+          <% end %>
+        </div>
+      </div>
+
+      <div class="show-mid-5th-content">
+        <div class="show-mid-5th-in-content">
+          <div class="show-main-5th-left-content">
+            <%= render partial: "comments/index", locals: { comments: @comments } %>
+          </div>
+        </div>
+      </div>
+
       <div class="show-footer-content">
         <div class="show-footer-left-content">
         </div>

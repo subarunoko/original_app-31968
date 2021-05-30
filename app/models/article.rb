@@ -9,6 +9,8 @@ class Article < ApplicationRecord
   has_many :article_tag_relations, dependent: :destroy
   has_many :tags, through: :article_tag_relations, dependent: :destroy
 
+  has_many :comments, dependent: :destroy
+
   def self.search(search)
     if search != ""
       Article.where('title LIKE(?)', "%#{search}%").order("created_at DESC")
