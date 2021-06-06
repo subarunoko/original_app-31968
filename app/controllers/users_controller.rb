@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_profile, only: [:index, :show, :edit, :update]
+  before_action :judge_follow, only: [:show]
   before_action :set_user, only: [:show, :edit, :update]
   before_action :authenticate_user!, except: [:show]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy]
@@ -8,8 +9,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @article = Article.where(user_id: params[:id])
-    @article = @user.articles
+    @article = Article.where(user_id: params[:id])
+    # @article = @user.articles
     @comment = @user.comments 
     @like = Like.where(user_id: params[:id])
 
@@ -49,6 +50,15 @@ class UsersController < ApplicationController
       redirect_to root_path and return
     end
   end
+
+  def judge_follow
+    if user_signed_in?
+      @following_user = Relationship.find_by(user_id: current_user.id, follower_id: params[:id])
+      @follower_user = Relationship.find_by(user_id: params[:id], follower_id: current_user.id)
+    end
+  end
+
+
 
   def update_params
     params.require(:profile).permit(:language_id, :description, :image).merge(user_id: current_user.id)

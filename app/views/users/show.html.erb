@@ -25,7 +25,7 @@
           </div>
 
           <% if user_signed_in? %>
-            <% if @user.nickname != "ゲスト" %>
+            <%# if @user.nickname != "ゲスト" %>
               <div class="users-show-main-left-second-content">
                   <% if current_user.id != @user.id %>
                     <div class="user-edit-btn">
@@ -42,8 +42,18 @@
                     </div>
                   <% end %>
               </div>
-            <% end %>  
+            <%# end %>  
+
+            <% if @following_user.present? && @follower_user.present?  %>
+              <div class="user-edit-btn">
+                <%= link_to "チャットへGo", user_room_path(params[:id]), class: 'user-edit-btn-text' %>
+              </div>
+            <% end %>
+
           <% end %>
+
+          
+
 
           <div class="users-show-main-left-third-content">
             <span>学習言語:　</span>
