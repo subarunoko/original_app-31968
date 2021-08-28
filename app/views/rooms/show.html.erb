@@ -1,0 +1,21 @@
+<div class="allwrapper">
+
+  <%= render "shared/header" %>
+
+  <div class="main-container">
+    <%= render "shared/main_sub" %>
+    <div class="main-content">
+      <div class="chat-container" id="chat-container">
+        <%= render 'header' %>
+        <div id='chats' data-room_id="<%= @room.id %>">
+          <%= render @chats %>
+        </div>
+        <%= render 'footer' %>
+      </div>
+
+    </div>
+  </div>
+
+  <%= render "shared/footer" %>
+
+</div>

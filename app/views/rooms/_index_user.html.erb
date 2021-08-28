@@ -1,0 +1,36 @@
+<div class="block-d">
+
+      <ul class='like-ul'>
+        <li class='like-btn'>
+          <div class="like-content-1st">
+          </div>
+          <div class="like-content-2nd">
+            <div class="like-content-3rd">
+                <% if entry.user.profile.image.attached? %>
+                  <%= image_tag(entry.user.profile.image.variant(resize: '70x70'), class:"like-pro-img") %>
+                <%else %>
+                  <%= image_tag("profile.png", :size => "70x70", class:"like-pro-img") %>
+                <% end %>
+            </div>
+
+            <div class="like-user-name">
+              <%#= link_to(user_path(entry.user), class: 'like-btn-sub-text') do %>
+              <%= link_to(room_path(entry.room), class: 'like-btn-sub-text') do %>    
+                <span class='like-btn-sub-text'><%= "@#{entry.user.nickname}" %></span>
+              <% end %>
+              <%= "&nbsp;".html_safe %>
+              <span>
+                <% dm = Chat.where(room_id: entry.room.id).order(created_at: :desc) %>
+                <% unless dm == [] %>
+                  <%= dm[0][:content].truncate(10) %>
+                  <%= "&emsp;".html_safe %>
+                  <%= "&emsp;".html_safe %>
+                  <%= dm[0][:created_at].strftime("%Y/%m/%d %H:%M:%S") %>
+                <% end %>
+              </span>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+</div>

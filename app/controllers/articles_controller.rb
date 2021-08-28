@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:edit, :update, :show, :destroy, :destroy_caution]
   before_action :authenticate_user!, except: [:index ,:show, :show_article, :search]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy, :destroy_caution]
-  
+
   def index
     # @articles = Article.includes(:user).order("created_at DESC")
     @articles = Article.includes(:user).page(params[:page]).order("created_at DESC")

@@ -1,0 +1,490 @@
+// main部分
+
+//show専用(room)
+.show-main-container {
+  display: flex;
+  /* width: 100vw; */
+  min-height: calc(100vh - 25px);
+  background-color: #f8f8f8;
+  padding-top: 50px;
+}
+
+
+.show-content {
+  width: 84vw;
+  display: block;
+  padding-top: 25px;
+}
+
+.show-top-content {
+  width: 80vw;
+  display: flex;
+  justify-content: space-between;
+}
+
+.show-top-left-content {
+  padding: 2px 0px 2px 12px;
+}
+
+.show-top-right-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.show-article-del-btn {
+  display: block;
+  // color: #f8f8f8;
+  background-color: red; 
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin: 3px 0px;
+  margin-right: 3px;
+  text-decoration: none;
+  .show-article-del-btn-text {
+    display: block;  //button全体にリンクがかかる
+    text-decoration: none;
+    font-size: 12px;
+    color:  #fff;
+  }
+}
+
+.show-article-edit-btn {
+  display: block;
+  // color: #f8f8f8;
+  background-color: #55c500; 
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin: 3px 0px;
+  margin-left: 3px;
+  text-decoration: none;
+  .show-article-edit-btn-text {
+    display: block;  //button全体にリンクがかかる
+    text-decoration: none;
+    font-size: 12px;
+    color:  #fff;
+  }
+}
+
+.show-mid-first-content {
+  width: 80vw;
+  height: 50px;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  // border: 1.5px solid #000;
+  background-color: #fff;
+  margin-top: 0.5%;
+  // margin-left: auto;
+  margin-right: auto;
+  padding-left: 12px;
+}
+
+.show-mid-first-content p {
+  margin-bottom: 0;
+  padding-left: 12px;
+}
+
+.show-mid-second-content {
+  width: 80vw;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  // border: 1.5px solid #000;
+  background-color: #fff;
+  // margin-top: 0.5%;
+  // margin-left: auto;
+  margin-right: auto;
+  padding-left: 12px;
+}
+
+.show-mid-second-content p {
+  margin-bottom: 0;
+}
+
+
+.show-mid-third-content {
+  display: flex;
+  // height: 88%;
+  min-height: calc(100vh - 234px);
+  // max-height: calc(100vh - 234px);
+  background-color: #f8f8f8;
+  // overflow-y: auto;
+  // text-align: center;
+}
+
+.show-mid-third-in-content label {
+  margin-bottom: 0;
+}
+
+.show-mid-third-in-content {
+  display: flex;
+  // margin-left: auto;
+  margin-right: auto;
+}
+
+.show-main-left-content {
+  width: 80vw;
+  // border: 1.5px solid #000;
+  background-color: #fff;
+  // margin-top: 0.5%;
+  overflow-y: auto;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+// .show-main-left-content textarea {
+//   width: 100%;
+//   height: calc(100vh - 250px);
+//   resize: none;
+//   border: none;
+// }
+
+.show-mid-4th-content {
+  // min-height: 200px;
+  background-color: #f8f8f8;
+}
+
+.show-mid-4th-in-content {
+  width: 80vw;
+  margin-right: auto;
+  background-color: #fff;
+}
+
+.show-mid-4th-in-content h5 {
+  font-weight: bold;
+  padding-left: 12px;
+}
+
+.show-mid-4th-up-content label {
+  margin-bottom: 0;
+}
+
+.show-mid-4th-up-content {
+  padding-left: 12px;
+  color: #000;
+  background-color: #fff;
+}
+
+.show-mid-4th-up-content p {
+  margin-bottom: 0;
+  padding-bottom: 5px;
+}
+
+.show-comment {
+  resize: none;
+  width: 70%;
+  height: 15vh;
+}
+
+.show-mid-4th-bottom-content {
+  width: 70.25%;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 12px;
+  color: #000;
+  background-color: #fff;
+}
+
+.show-main-4th-left-content {
+  // background-color: #fff;
+  padding-top: 5px;
+}
+
+.show-main-4th-right-content {
+  // background-color: #fff;
+  padding-top: 5px;
+}
+
+
+.show-mid-5th-content {
+  display: flex;
+  // height: 88%;
+  min-height: 200px;
+  background-color: #f8f8f8;
+}
+
+.show-mid-5th-in-content label {
+  margin-bottom: 0;
+}
+
+.show-mid-5th-in-content {
+  display: flex;
+  // margin-left: auto;
+  margin-right: auto;
+  color: #000
+}
+
+.show-main-5th-left-content {
+  width: 80vw;
+  // border: 1.5px solid #000;
+  background-color: #fff;
+  overflow-y: auto;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-top: 5px;
+}
+
+.comment-ul {
+  width: 70.5%;
+  // background: #c0f7ba;
+  background: #d0f7ed;
+  list-style: none;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding-left: 20px;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
+.comment-ul p {
+  margin-bottom: 0;
+}
+
+.show-comment-del-btn {
+  width: 92px;
+  display: block;
+  // color: #f8f8f8;
+  background-color: red; 
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 2px 8px;
+  margin: 3px 0px;
+  margin-right: 3px;
+  text-decoration: none;
+  .show-comment-del-btn-text {
+    display: block;  //button全体にリンクがかかる
+    text-decoration: none;
+    font-size: 12px;
+    color:  #fff;
+  }
+}
+
+
+
+
+.show-footer-content {
+  width: 80vw;
+  // height: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: none;
+  // border: 1px solid #000;
+  background-color: #f8f8f8;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  // margin-left: auto;
+  margin-right: auto;  
+  // align-items: center;
+}
+
+.show-article-submit-btn {
+  color: #f8f8f8;
+  background-color: #55c500; 
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 2px 4px;
+}
+
+.show-tag-btn {
+  display: block;
+  // color: #f8f8f8;
+  background-color: #55c500; 
+  border: 1px solid #000;
+  border-radius: 2px;
+  padding: 2px 4px;
+  // margin: 3px 0px;
+  // margin-left: 3px;
+  margin-right: 5px;
+  text-decoration: none;
+  .show-tag-btn-text {
+    display: block;  //button全体にリンクがかかる
+    text-decoration: none;
+    font-size: 13px;
+    color:  #fff;
+  }
+}
+
+
+
+
+
+//エラー時
+.error-alert {
+  // width: 80vw;
+  height: 70px;
+  align-items: center;
+  align-items: center;
+  border: none;
+  // border: 1px solid #000;
+  color: red;
+  background-color: #f8f8f8;
+  margin-top: 0.5%;
+  // margin-left: auto;
+  margin-right: auto;
+  padding-left: 2vw;
+
+}
+
+
+
+
+
+/************************************
+** トークルーム一覧
+************************************/
+// .rooms{
+//   margin:0 auto;
+//   background-color:#fdfdfd;
+//   border: 2px solid #eee;
+//   padding:1em 2em;
+// }
+
+.chat-container{
+  // max-width: 450px;
+  max-width: 70%;
+  margin:0 auto;
+}
+
+.room-main-header{
+  width: 100%;
+  margin:0 auto;
+  // position: fixed;
+  color: #fff;
+  background-color:#505e80;
+  padding:1px 1vw;
+}
+
+.room-main-header h5{
+  padding-top: 0.5rem;
+}
+
+/************************************
+** チャットの吹き出し
+************************************/
+#chats{
+// .main-chats{  
+  padding: 20px 10px;
+  // max-width: 450px;
+  width: 100%;
+  margin:0 auto 1em auto;
+  text-align: right;
+  font-size: 16px;
+  background: #7da4cd;
+  overflow: scroll;
+}
+.fukidasi {
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+}
+.fukidasi .faceicon {
+  float: left;
+  margin-right: -50px;
+  width: 40px;
+}
+.fukidasi .faceicon img{
+  width: 90%;
+  height: auto;
+  border-radius: 50%;
+}
+.fukidasi .chatting {
+  width: 100%;
+  text-align: left;
+}
+.says {
+  display: inline-block;
+  // position: relative;
+  margin: 0 0 0 50px;
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #edf1ee;
+}
+// .says:after {
+//   content: "";
+//   display: inline-block;
+//   position: absolute;
+//   top: 3px;
+//   left: -19px;
+//   border: 8px solid transparent;
+//   border-right: 18px solid #edf1ee;
+//   -webkit-transform: rotate(35deg);
+//   transform: rotate(35deg);
+// }
+.says p {
+  margin: 0;
+  padding: 0;
+}
+.mycomment {
+  margin: 10px 0;
+}
+.mycomment p {
+  display: inline-block;
+  position: inherit;
+  // position: relative;
+  margin: 0 10px 0 0;
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #30e852;
+  font-size: 16px;
+}
+.mycomment p:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent;
+  border-left: 18px solid #30e852;
+  -webkit-transform: rotate(-35deg);
+  transform: rotate(-35deg);
+}
+/************************************
+** 送信フォーム
+************************************/
+.send-form{
+  // text-align: center;
+  margin-bottom: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 450px;
+  // height: 10vh;
+  display: flex;
+  align-items: center;
+}
+
+.send-form-text {
+  resize: none;
+  width: 400px;
+  height: 30px;
+  align-items: center;
+}
+
+.send-submit-btn {
+  color: #f8f8f8;
+  background-color: #55c500; 
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 2px 4px;
+  height: 30px;
+  align-items: center;  
+
+}
+
+
+
+
+// #send-form textarea {
+//   max-width: 500px;
+// }
+
+
+
+
+// /main部分
