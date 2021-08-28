@@ -13,7 +13,9 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update] do
     # resources :relationships, only: [:create, :destroy]
-    resources :rooms, only: [:show, :index]
+    # resources :rooms, only: [:show, :index] do
+    #   resources :chats, only: [:create]
+    # end
 
     member do
       get 'articles/show_article', to: "articles#show_article" 
@@ -42,7 +44,29 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
+  mount ActionCable.server => '/cable'
   root to: 'articles#index'
+
+
+  # resources :rooms, only: [:show, :index] do
+  #   resources :users, only: [:show], to: "rooms#show", as: 'user'
+  #   resources :chats, only: [:create]
+  # end
+
+  # # get 'rooms/:id/new', to: "rooms#new", as: 'new_room'
+  # post 'rooms/:room_id/users/:id', to: "chats#create", as: 'room_user_chats'
+
+  
+  resources :rooms, only: [:show, :index]
+  # resources :rooms, only: [:show, :index] do
+  #   resources :users, only: [:show], to: "rooms#show", as: 'user'
+  # end
+  # get 'rooms/:room_id/users/:id', to: "rooms#show", as: 'room_user'
+
+
+  
+
+
 
   post 'likes/:id/create', to: "likes#create", as: 'create_like'
   delete 'likes/:id/destroy', to: "likes#destroy", as: 'destroy_like'

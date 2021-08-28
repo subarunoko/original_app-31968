@@ -19,7 +19,7 @@
           </button>
           <button class="sub-btn">
             <% if user_signed_in? %>
-              <%= link_to "チャット", "#", class:"sub-btn-text" %>
+              <%= link_to "チャット", rooms_path, class:"sub-btn-text" %>
             <% else%>
               <%= link_to "チャット", new_user_session_path, class:"sub-btn-text" %>
             <% end %>

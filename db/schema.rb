@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2021_05_30_152407) do
   end
 
   create_table "chats", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "text", null: false
+    t.text "content", null: false
     t.bigint "user_id"
     t.bigint "room_id"
     t.datetime "created_at", precision: 6, null: false
@@ -113,10 +113,9 @@ ActiveRecord::Schema.define(version: 2021_05_30_152407) do
   end
 
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
+    t.text "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -150,5 +149,4 @@ ActiveRecord::Schema.define(version: 2021_05_30_152407) do
   add_foreign_key "likes", "users"
   add_foreign_key "relationships", "users"
   add_foreign_key "relationships", "users", column: "follower_id"
-  add_foreign_key "rooms", "users"
 end

@@ -38,7 +38,7 @@
                     <div class="user-edit-btn">
                       <%#= link_to "編集する", edit_user_path(params[:id]), class: 'user-edit-btn-text' %>
                       <%#= link_to "編集する", edit_user_registration_path, class: 'user-edit-btn-text' %>
-                      <%= link_to "編集する", edit_user_path(params[:id]), class: 'user-edit-btn-text' %>
+                      <%= link_to "編集する", edit_user_path(@user), class: 'user-edit-btn-text' %>
                     </div>
                   <% end %>
               </div>
@@ -46,7 +46,8 @@
 
             <% if @following_user.present? && @follower_user.present?  %>
               <div class="user-edit-btn">
-                <%= link_to "チャットへGo", user_room_path(params[:id]), class: 'user-edit-btn-text' %>
+                <%#= link_to "チャットへGo", room_user_path(@room), class: 'user-edit-btn-text' %>
+                <%= link_to "チャットへGo", room_path(@room), class: 'user-edit-btn-text' %>
               </div>
             <% end %>
 

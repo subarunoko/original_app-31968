@@ -23,6 +23,7 @@ class User < ApplicationRecord
 
   has_many :entries, dependent: :destroy
   has_many :chats, dependent: :destroy
+  has_many :rooms, through: :entries
 
   with_options presence: true do
     validates :nickname

@@ -1,0 +1,21 @@
+<div class="chat" id="chat-<%= chat.id %>">
+  <%if chat.user_id == current_user.id%>
+    <div class="mycomment">
+      <%= l chat.created_at, format: '%H:%M' %>
+      <p><%=chat.content%></p>
+    </div>
+  <%else%>
+    <div class="fukidasi">
+      <div class="faceicon">
+        <img src="/assets/profile.png" alt="相手">
+        <%#= image_tag(@user_prof.profile.image) %>
+      </div>
+      <div class="chatting">
+        <div class="says">
+          <p><%=chat.content%></p>
+        </div>
+        <%= l chat.created_at, format: '%H:%M' %>
+      </div>
+    </div>
+  <%end%>
+</div>
