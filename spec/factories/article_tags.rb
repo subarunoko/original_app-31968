@@ -8,8 +8,8 @@ FactoryBot.define do
 
     # title                 {"sample1"}
     # description           {"text"}
-    title                 {rnd_title}    
-    body                  {rnd_body}
+    title                 {rnd_title}
+    # body                  {rnd_body}
     tag_ids               {"tag1"}
 
     # after(:build) do |item|
@@ -17,4 +17,11 @@ FactoryBot.define do
     #   item.images.attach(io: File.open("public/images/test_sample1.png"), filename: "test_image.png")
     # end
   end
+
+  factory :article_tag1, class: ArticleTag do
+    article
+    tag
+  end
+
+
 end

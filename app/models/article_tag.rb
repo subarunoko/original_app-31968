@@ -5,13 +5,13 @@ class ArticleTag
 
   with_options presence: true do
     validates :title, length: { maximum: 30, message: "の文字数の上限を超えてます\n修正して下さい" }
-    validates :body, length: { maximum: 2000, message: "の文字数の上限を超えてます\n修正して下さい" }
+    # validates :body, length: { maximum: 2000, message: "の文字数の上限を超えてます\n修正して下さい" }
     validates :tag_ids
   end
 
   validate :tag_length
   validate :tag_content_kigou
-
+  validates :body, length: { maximum: 2000, message: "の文字数の上限を超えてます\n修正して下さい" }
 
   def save
     @article = Article.create(title: title, body: body, user_id: user_id)
