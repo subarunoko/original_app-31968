@@ -318,7 +318,7 @@ RSpec.describe "記事編集", type: :system do
       # ログインページへ遷移する
       click_on "ログイン" 
 
-      # 正しいユーザー情報を入力する
+      # ユーザー1でログインする
       fill_in "メールアドレス", with: @user1.email
       fill_in "パスワード", with: @user1.password
       # ログインボタンを押す
@@ -392,7 +392,7 @@ RSpec.describe "記事削除", type: :system do
       # ログインページへ遷移する
       click_on "ログイン" 
 
-      # 正しいユーザー情報を入力する
+      # ユーザー1でログインする
       fill_in "メールアドレス", with: @user1.email
       fill_in "パスワード", with: @user1.password
       # ログインボタンを押す
@@ -489,9 +489,9 @@ RSpec.describe "記事削除", type: :system do
       # トップページに移動する
       visit root_path
 
-      # 記事編集ページへ遷移することを確認する
+      # 記事削除ページへ遷移する
       visit destroy_caution_article_path(@article1)    
-      # 投稿完了ページへ遷移することを確認する
+      # トップページへ遷移することを確認する
       expect(current_path).to eq root_path
     end
   end

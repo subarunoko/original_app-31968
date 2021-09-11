@@ -46,16 +46,16 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors[:password]).to include "は6文字以上で入力してください"
       end
-      it "passwordが数字のみでは登録できない" do
-        @user.password = "123456"
-        @user.valid?
-        expect(@user.errors[:password]).to include "英字と数字の両方を含めて設定してください"
-      end
-      it "passwordが英字のみでは登録できない" do
-        @user.password = "abcdef"
-        @user.valid?
-        expect(@user.errors[:password]).to include "英字と数字の両方を含めて設定してください"
-      end
+      # it "passwordが数字のみでは登録できない" do
+      #   @user.password = "123456"
+      #   @user.valid?
+      #   expect(@user.errors[:password]).to include "英字と数字の両方を含めて設定してください"
+      # end
+      # it "passwordが英字のみでは登録できない" do
+      #   @user.password = "abcdef"
+      #   @user.valid?
+      #   expect(@user.errors[:password]).to include "英字と数字の両方を含めて設定してください"
+      # end
     end
   end
 end

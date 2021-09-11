@@ -17,11 +17,4 @@ FactoryBot.define do
     #   item.images.attach(io: File.open("public/images/test_sample1.png"), filename: "test_image.png")
     # end
   end
-
-  factory :article_tag1, class: ArticleTag do
-    article
-    tag
-  end
-
-
 end
