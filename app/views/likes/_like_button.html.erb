@@ -12,4 +12,4 @@
 <% else %>
   <%= image_tag 'good.png' ,class: "good-icon" %>    
 <% end %>
-<span class='icon-count'><%=link_to " #{article.likes.count}", like_user_path(article) %></span>
+<span class='icon-count' id="icon-count-<%= article.id %>" ><%=link_to " #{article.likes.count}", like_user_path(article) %></span>

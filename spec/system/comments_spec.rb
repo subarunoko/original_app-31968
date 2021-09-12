@@ -10,6 +10,7 @@ RSpec.describe "コメント投稿", js: true, type: :system do
     @article2 = FactoryBot.create(:article2, user_id: @user2.id)
     @tag1 = FactoryBot.create(:tag)
     ArticleTagRelation.create(article_id: @article1.id, tag_id: @tag1.id)
+    ArticleTagRelation.create(article_id: @article2.id, tag_id: @tag1.id)
     @comment = FactoryBot.build(:comment1, user_id: @user1.id, article_id: @article1.id)
   end
 
@@ -102,6 +103,7 @@ RSpec.describe "コメント削除", js: true, type: :system do
     @article2 = FactoryBot.create(:article2, user_id: @user2.id)
     @tag1 = FactoryBot.create(:tag)
     ArticleTagRelation.create(article_id: @article1.id, tag_id: @tag1.id)
+    ArticleTagRelation.create(article_id: @article2.id, tag_id: @tag1.id)
     @comment1 = FactoryBot.create(:comment1, user_id: @user1.id, article_id: @article2.id)
     @comment2 = FactoryBot.create(:comment2, user_id: @user3.id, article_id: @article2.id)
   end
