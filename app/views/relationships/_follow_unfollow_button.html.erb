@@ -2,12 +2,12 @@
   <% if current_user.following?(user) %>
     <%= form_for(current_user.relationships.find_by(follower_id: user.id), url: destroy_user_path(user), html: { method: :delete }, class: 'user-edit-btn' ) do |f| %>
       <%= hidden_field_tag :follower_id, user.id %>
-      <%= f.submit 'フォロー解除', class: 'user-edit-btn-text' %>
+      <%= f.submit 'フォロー解除', class: 'user-edit-btn-text', id: 'unfollow-btn' %>
     <% end %>
   <% else %>
     <%= form_for(current_user.relationships.build,  url: create_user_path(user), class: 'user-edit-btn') do |f| %>
       <%= hidden_field_tag :follower_id, user.id %>
-      <%= f.submit 'フォロ-する', class: 'user-edit-btn-text' %>
+      <%= f.submit 'フォロ-する', class: 'user-edit-btn-text', id: 'follow-btn' %>
     <% end %>
   <% end %>
 <%# end %>

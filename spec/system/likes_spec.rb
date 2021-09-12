@@ -14,7 +14,6 @@ RSpec.describe "いいね機能", js: true, type: :system do
     ArticleTagRelation.create(article_id: @article2.id, tag_id: @tag1.id)
     @comment1 = FactoryBot.create(:comment1, user_id: @user1.id, article_id: @article2.id)
     @comment2 = FactoryBot.create(:comment2, user_id: @user3.id, article_id: @article2.id)
-    # @like = FactoryBot.build(user_id: @user1.id, article_id: @article2.id)
   end
 
   context "いいねできる時" do
@@ -22,14 +21,9 @@ RSpec.describe "いいね機能", js: true, type: :system do
       # トップページに移動する
       visit root_path
 
-      # ログインページへ遷移する
-      click_on "ログイン" 
-
       # ユーザー1でログインする
-      fill_in "メールアドレス", with: @user1.email
-      fill_in "パスワード", with: @user1.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
+      sign_in(@user1)
+
       # トップページへ遷移することを確認する
       expect(current_path).to eq root_path
       
@@ -75,7 +69,6 @@ RSpec.describe "いいねしたユーザ一覧機能", js: true, type: :system d
     ArticleTagRelation.create(article_id: @article2.id, tag_id: @tag1.id)
     @comment1 = FactoryBot.create(:comment1, user_id: @user1.id, article_id: @article2.id)
     @comment2 = FactoryBot.create(:comment2, user_id: @user3.id, article_id: @article2.id)
-    # @like = FactoryBot.build(user_id: @user1.id, article_id: @article2.id)
   end
 
   context "いいねしたユーザーが存在する時" do
@@ -83,21 +76,16 @@ RSpec.describe "いいねしたユーザ一覧機能", js: true, type: :system d
       # トップページに移動する
       visit root_path
 
-      # ログインページへ遷移する
-      click_on "ログイン" 
-
       # ユーザー1でログインする
-      fill_in "メールアドレス", with: @user1.email
-      fill_in "パスワード", with: @user1.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
+      sign_in(@user1)
+
       # トップページへ遷移することを確認する
       expect(current_path).to eq root_path
       
       # いいねボタンを押す
       # いいねのカウント数が1上がることを確認する
       find("#like-btn-#{@article2.id}").click
-      sleep 1
+      sleep 0.5
       expect(@article2.likes.count).to eq(1)
 
       # いいねしたユーザーボタンを押す
@@ -117,14 +105,9 @@ RSpec.describe "いいねしたユーザ一覧機能", js: true, type: :system d
       # トップページに移動する
       visit root_path
 
-      # ログインページへ遷移する
-      click_on "ログイン" 
-
       # ユーザー1でログインする
-      fill_in "メールアドレス", with: @user1.email
-      fill_in "パスワード", with: @user1.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
+      sign_in(@user1)
+
       # トップページへ遷移することを確認する
       expect(current_path).to eq root_path
       

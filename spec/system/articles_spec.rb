@@ -14,16 +14,11 @@ RSpec.describe "記事投稿", type: :system do
       # トップページにログインページへ遷移するボタンがあることを確認する
       # expect(page).to have_content("ログイン")
 
-      # ログインページへ遷移する
-      click_on "ログイン" 
+      # ユーザー1でログインする
+      sign_in(@user)
 
-      # 正しいユーザー情報を入力する
-      fill_in "メールアドレス", with: @user.email
-      fill_in "パスワード", with: @user.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
       # トップページへ遷移することを確認する
-      # expect(current_path).to eq root_path
+      expect(current_path).to eq root_path
 
       # 記事投稿ページへ遷移する
       click_on "投稿する"
@@ -78,16 +73,11 @@ RSpec.describe "記事投稿", type: :system do
       # トップページに移動する
       visit root_path
 
-      # ログインページへ遷移する
-      click_on "ログイン" 
+      # ユーザーログインする
+      sign_in(@user)
 
-      # 正しいユーザー情報を入力する
-      fill_in "メールアドレス", with: @user.email
-      fill_in "パスワード", with: @user.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
       # トップページへ遷移することを確認する
-      # expect(current_path).to eq root_path
+      expect(current_path).to eq root_path
 
       # 記事投稿ページへ遷移する
       click_on "投稿する"
@@ -112,16 +102,11 @@ RSpec.describe "記事投稿", type: :system do
       # トップページに移動する
       visit root_path
 
-      # ログインページへ遷移する
-      click_on "ログイン" 
+      # ユーザーログインする
+      sign_in(@user)
 
-      # 正しいユーザー情報を入力する
-      fill_in "メールアドレス", with: @user.email
-      fill_in "パスワード", with: @user.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
       # トップページへ遷移することを確認する
-      # expect(current_path).to eq root_path
+      expect(current_path).to eq root_path
 
       # 記事投稿ページへ遷移する
       click_on "投稿する"
@@ -204,14 +189,9 @@ RSpec.describe "記事編集", type: :system do
       # トップページに移動する
       visit root_path
 
-      # ログインページへ遷移する
-      click_on "ログイン" 
+      # ユーザー1でログインする
+      sign_in(@user1)
 
-      # 正しいユーザー情報を入力する
-      fill_in "メールアドレス", with: @user1.email
-      fill_in "パスワード", with: @user1.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
       # トップページへ遷移することを確認する
       expect(current_path).to eq root_path
 
@@ -282,14 +262,9 @@ RSpec.describe "記事編集", type: :system do
       # トップページに移動する
       visit root_path
 
-      # ログインページへ遷移する
-      click_on "ログイン" 
-
       # ユーザー2でログインする
-      fill_in "メールアドレス", with: @user2.email
-      fill_in "パスワード", with: @user2.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
+      sign_in(@user2)      
+
       # トップページへ遷移することを確認する
       expect(current_path).to eq root_path
 
@@ -315,14 +290,9 @@ RSpec.describe "記事編集", type: :system do
       # トップページに移動する
       visit root_path
 
-      # ログインページへ遷移する
-      click_on "ログイン" 
-
       # ユーザー1でログインする
-      fill_in "メールアドレス", with: @user1.email
-      fill_in "パスワード", with: @user1.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
+      sign_in(@user1)      
+
       # トップページへ遷移することを確認する
       expect(current_path).to eq root_path
 
@@ -389,14 +359,9 @@ RSpec.describe "記事削除", type: :system do
       # トップページに移動する
       visit root_path
 
-      # ログインページへ遷移する
-      click_on "ログイン" 
-
       # ユーザー1でログインする
-      fill_in "メールアドレス", with: @user1.email
-      fill_in "パスワード", with: @user1.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
+      sign_in(@user1)
+
       # トップページへ遷移することを確認する
       expect(current_path).to eq root_path
 
@@ -466,14 +431,9 @@ RSpec.describe "記事削除", type: :system do
       # トップページに移動する
       visit root_path
 
-      # ログインページへ遷移する
-      click_on "ログイン" 
-
       # ユーザー2でログインする
-      fill_in "メールアドレス", with: @user2.email
-      fill_in "パスワード", with: @user2.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
+      sign_in(@user2)      
+
       # トップページへ遷移することを確認する
       expect(current_path).to eq root_path
 

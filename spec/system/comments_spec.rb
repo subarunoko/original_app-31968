@@ -19,14 +19,9 @@ RSpec.describe "コメント投稿", js: true, type: :system do
       # トップページに移動する
       visit root_path
 
-      # ログインページへ遷移する
-      click_on "ログイン" 
-
       # ユーザー1でログインする
-      fill_in "メールアドレス", with: @user1.email
-      fill_in "パスワード", with: @user1.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
+      sign_in(@user1)
+
       # トップページへ遷移することを確認する
       expect(current_path).to eq root_path
 
@@ -70,14 +65,9 @@ RSpec.describe "コメント投稿", js: true, type: :system do
       # トップページに移動する
       visit root_path
 
-      # ログインページへ遷移する
-      click_on "ログイン" 
-
       # ユーザー1でログインする
-      fill_in "メールアドレス", with: @user1.email
-      fill_in "パスワード", with: @user1.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
+      sign_in(@user1)
+
       # トップページへ遷移することを確認する
       expect(current_path).to eq root_path
 
@@ -113,14 +103,9 @@ RSpec.describe "コメント削除", js: true, type: :system do
       # トップページに移動する
       visit root_path
 
-      # ログインページへ遷移する
-      click_on "ログイン" 
-
       # ユーザー1でログインする
-      fill_in "メールアドレス", with: @user1.email
-      fill_in "パスワード", with: @user1.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
+      sign_in(@user1)
+
       # トップページへ遷移することを確認する
       expect(current_path).to eq root_path
 
@@ -161,14 +146,9 @@ RSpec.describe "コメント削除", js: true, type: :system do
       # トップページに移動する
       visit root_path
 
-      # ログインページへ遷移する
-      click_on "ログイン" 
-
       # ユーザー2でログインする
-      fill_in "メールアドレス", with: @user2.email
-      fill_in "パスワード", with: @user2.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
+      sign_in(@user2)      
+
       # トップページへ遷移することを確認する
       expect(current_path).to eq root_path
 

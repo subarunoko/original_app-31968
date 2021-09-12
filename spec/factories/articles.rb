@@ -22,4 +22,4 @@ FactoryBot.define do
     body                  {rnd_body}
     # tag_ids               {"tag1"}
   end
-end
+end  

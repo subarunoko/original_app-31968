@@ -20,7 +20,7 @@
               <div class="likes-show-main-left-up-content">
                 <h3>フォローしているユーザー</h3><br>
                 <% unless @follows.present? %>
-                  <h4>ユーザーはありません</h4> 
+                  <h4>フォローしているユーザーはいません</h4> 
                 <% else %>
 
                   <%= render partial: "follower", collection: @follows, as: "user" %>
