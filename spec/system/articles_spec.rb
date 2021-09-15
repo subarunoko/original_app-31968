@@ -65,7 +65,7 @@ RSpec.describe "記事投稿", type: :system do
       expect(page).to have_no_content("投稿する")
       # 投稿ページへ移動する
       visit new_article_path      
-      # 投稿完了ページへ遷移することを確認する
+      # ログインページへ遷移することを確認する
       expect(current_path).to eq new_user_session_path
     end
 
