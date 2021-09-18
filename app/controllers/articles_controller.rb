@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :set_profile, except: [:create, :create_done, :destroy, :edit, :update]
+  before_action :set_profile, except: [:create, :destroy, :edit, :update]
   before_action :set_article, only: [:edit, :update, :show, :destroy, :destroy_caution]
   before_action :authenticate_user!, except: [:index ,:show, :show_article, :search]
   before_action :contributor_confirmation, only: [:edit, :update, :destroy, :destroy_caution]

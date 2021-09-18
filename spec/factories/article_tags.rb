@@ -8,8 +8,8 @@ FactoryBot.define do
 
     # title                 {"sample1"}
     # description           {"text"}
-    title                 {rnd_title}    
-    body                  {rnd_body}
+    title                 {rnd_title}
+    # body                  {rnd_body}
     tag_ids               {"tag1"}
 
     # after(:build) do |item|

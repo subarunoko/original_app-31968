@@ -13,11 +13,12 @@
       <%= render 'shared/error_messages', model: @article %>
 
       <div class="new-top-content">
-        <%= f.text_field :title, autofocus: true, class:"article-title", placeholder:"タイトル (30文字以内)" %>
-        <%#= f.text_field :title, autofocus: true, autocomplete: "title", placeholder:"タイトル" %>
+        <%#= f.text_field :title, autofocus: true, class:"article-title", placeholder:"タイトル (30文字以内)" %>
+        <%= f.text_field :title, autofocus: true, class:"article-title", placeholder:"タイトル (30文字以内)", id: "title" %>
       </div>
       <div class="new-mid-content">
-        <%= f.text_field :tag_ids, class:"article-tag", placeholder:"タグ (登録できるのは5つまで　タグ切りは半角スペース)" %>
+        <%#= f.text_field :tag_ids, class:"article-tag", placeholder:"タグ (登録できるのは5つまで　タグ切りは半角スペース)" %>
+        <%= f.text_field :tag_ids, class:"article-tag", placeholder:"タグ (登録できるのは5つまで　タグ切りは半角スペース)", id: "tag_ids" %>
       </div>
       <div class="new-bottom-out-content">
         <div class="new-bottom-in-content">

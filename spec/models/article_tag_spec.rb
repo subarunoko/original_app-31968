@@ -25,11 +25,11 @@ RSpec.describe ArticleTag, type: :model do
         expect(@article.errors[:title]).to include "の文字数の上限を超えてます\n修正して下さい" 
       end
 
-      it "bodyが空では登録できない" do
-        @article.body = ""
-        @article.valid?
-        expect(@article.errors[:body]).to include "を入力してください"
-      end
+      # it "bodyが空では登録できない" do
+      #   @article.body = ""
+      #   @article.valid?
+      #   expect(@article.errors[:body]).to include "を入力してください"
+      # end
       it "bodyが2001文字以上では登録できない" do
         @article.body = SecureRandom.alphanumeric(2001)
         @article.valid?

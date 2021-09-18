@@ -16,6 +16,8 @@ ja:
         # family_name_kana: 苗字(カナ)
         # first_name_kana: 氏名(カナ)
         # birthday: 生年月日
+      profile:
+        description: プロフィール
       article:
         title: タイトル
         body: 本文

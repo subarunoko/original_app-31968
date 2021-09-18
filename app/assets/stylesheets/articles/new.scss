@@ -165,7 +165,7 @@
 //エラー時
 .error-alert {
   width: calc(96vw + 10px);
-  height: 70px;
+  max-height: 70px;
   align-items: center;
   align-items: center;
   border: none;
